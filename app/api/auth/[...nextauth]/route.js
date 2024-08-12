@@ -2,14 +2,11 @@ import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import GithubProvider from "next-auth/providers/github"
 import FacebookProvider from "next-auth/providers/facebook";
-import mongoose from 'mongoose';
 import User from '@/models/User';
 import ConnectDB from '@/db/ConnectDB';
 
-
 const handler = NextAuth({
   providers: [
-    // OAuth authentication providers...
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
@@ -36,18 +33,16 @@ const handler = NextAuth({
           access_type: "offline",
         },
       },
-
     })
   ],
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      // connect to DataBase
-      await ConnectDB()
       try {
-        const userExist = await User.findOne({ email: user.email })
+        await ConnectDB();
+        const userExist = await User.findOne({ email: user.email });
+
         if (!userExist) {
-           // Create a new user with information from the user and account objects
-           const newUser = new User({
+          const newUser = new User({
             email: user.email,
             username: user.email.split("@")[0],
             image: user.image,
@@ -56,19 +51,26 @@ const handler = NextAuth({
           await newUser.save();
         }
         return true;
-      }
-      catch (error) {
-        alert.error('Error during sign-in', error);
+      } catch (error) {
+        console.error('Error during sign-in:', error);
         return false;
       }
     },
     async session({ session, user, token }) {
-      // change session data from db
-      const dbUser = await User.findOne({ email: session.user.email })
-      session.user.username = dbUser.username
-      session.user.image = dbUser.image
-      return session
+      try {
+        await ConnectDB();
+        const dbUser = await User.findOne({ email: session.user.email });
+        if (dbUser) {
+          session.user.username = dbUser.username;
+          session.user.image = dbUser.image;
+        }
+        return session;
+      } catch (error) {
+        console.error('Error during session retrieval:', error);
+        return session;
+      }
     },
   }
-})
-export { handler as GET, handler as POST }
+});
+
+export { handler as GET, handler as POST };
