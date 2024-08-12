@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* add a design scroll bar for other*/
+
+.scrollbar-hover-expand {
+  @apply overflow-y-auto;
+  position: relative; /* To contain the custom scrollbar */
+}
+
+.scrollbar-hover-expand {
+  @apply overflow-y-auto;
+}
+
+.scrollbar-hover-expand::-webkit-scrollbar {
+  width: 0px;
+  transition: width 0.3s;
+}
+
+.scrollbar-hover-expand:hover::-webkit-scrollbar {
+  width: 3px;
+}
+
+.scrollbar-hover-expand::-webkit-scrollbar-thumb {
+  @apply bg-purple-500 rounded;
+}
+
+
+/* for body */
+.scrollbar-rounded {
+  @apply overflow-y-auto;
+}
+
+.scrollbar-rounded::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-rounded::-webkit-scrollbar-thumb {
+  @apply bg-purple-500 rounded-full;
+}
