@@ -64,7 +64,7 @@ function User({ username }) {
   return (
     <>
       <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
-      {Object.keys(userInfo).length == "" && <div className='min-h-[90vh] justify-center items-center flex flex-col'>
+      {userInfo.username!="" && userInfo.username !== username && <div className='sm:min-h-[90vh] h-[40vh] justify-center items-center flex flex-col'>
         <h2 className="sm:text-[44px] text-[24px] font-extrabold">User Not Found ☹</h2>
         <Link href={'/'} className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-2000/200 font-medium rounded-lg px-2.5 py-1.5 sm:px-4 sm:py-2 text-center sm:text-[16px] text-[13px] my-1">Home</Link>
       </div>}
