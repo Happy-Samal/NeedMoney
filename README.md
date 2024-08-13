@@ -27,8 +27,8 @@ Need Money is a web application designed for crowdfunding, where creator , influ
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/Happy-Samal/Need-Money.git
-   cd Need-Money
+   git clone https://github.com/Happy-Samal/NeedMoney.git
+   cd NeedMoney
     ```
 
 1. **Install dependencies:**
@@ -92,8 +92,8 @@ We welcome contributions to enhance the platform. You can add new features, fix 
 
 2. **Clone the forked repository:**
     ```sh
-    git clone https://github.com/Happy-Samal/Need-Money.git
-    cd Need-Money
+    git clone https://github.com/Happy-Samal/NeedMoney.git
+    cd NeedMoney
     ```
 3. **Create a new branch:**
     ```sh
@@ -123,7 +123,7 @@ We welcome contributions to enhance the platform. You can add new features, fix 
 - Test your changes thoroughly before submitting a pull request.
 
 ## License
-This project is licensed under the MIT [License](https://github.com/Happy-Samal/Need-Money/blob/main/LICENSE). See the LICENSE file for details.
+This project is licensed under the MIT [License](https://github.com/Happy-Samal/NeedMoney/blob/main/LICENSE). See the LICENSE file for details.
 
 ## Contact
 For any questions or feedback, please reach out to us at rudrasamal007@gmail.com
