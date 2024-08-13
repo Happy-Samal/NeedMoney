@@ -22,13 +22,13 @@ function Footer() {
                 <div className='flex flex-col gap-2 items-center'>
                     <span>Follow Me On</span>
                     <div className='flex gap-4'>
-                        <a href="https://www.instagram.com/rudrasamal_?igsh=cGhnMDNoOTdsOHhl" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/rudrasamal_/" target="_blank" rel="noopener noreferrer">
                             <img src="/insta.gif" alt="insta" className='w-[25px] h-[25px]' />
                         </a>
-                        <a href="https://www.facebook.com/samalrudra.rudra?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/samalrudra.rudra" target="_blank" rel="noopener noreferrer">
                             <img src="/facebook.gif" alt="facebook" className='w-[25px] h-[25px]' />
                         </a>
-                        <a href="https://www.linkedin.com/in/happy-samal-6215972a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/happy-samal" target="_blank" rel="noopener noreferrer">
                             <img src="/linkedin.gif" alt="linkedin" className='w-[25px] h-[25px]' />
                         </a>
                         <a href="https://github.com/Happy-Samal" target="_blank" rel="noopener noreferrer">
