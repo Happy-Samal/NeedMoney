@@ -31,6 +31,9 @@ function Footer() {
                         <a href="https://www.linkedin.com/in/happy-samal-6215972a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">
                             <img src="/linkedin.gif" alt="linkedin" className='w-[25px] h-[25px]' />
                         </a>
+                        <a href="https://github.com/Happy-Samal" target="_blank" rel="noopener noreferrer">
+                            <img src="/github.gif" alt="github" className='w-[25px] h-[25px]' />
+                        </a>
                     </div>
                 </div>
             </div>
