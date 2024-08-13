@@ -31,7 +31,7 @@ function Navbar() {
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
             e.preventDefault();
-            let username = search.replace(" ", "_");
+            let username = search.toLocaleLowerCase().replace(" ", "_");
             router.push(`/user/${username}`);
             setSearch("");
         }
