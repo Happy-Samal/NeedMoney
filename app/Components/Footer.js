@@ -13,10 +13,10 @@ function Footer() {
                         <p>Made by Happy Samal with ❤</p>
                     </div>
                     <div className='flex gap-4 sm:justify-normal justify-center'>
-                        <Link href={'/About'} className='hover:underline'>About</Link>
-                        <Link href={'/ContactUs'} className='hover:underline'>Contact us</Link>
-                        <Link href={'/PrivacyPolicy'} className='hover:underline'>Privacy Policy</Link>
-                        <Link href={'/Terms&Condition'} className='hover:underline'>Terms & Conditions</Link>
+                        <Link href={'/About'} className='hover:underline underline sm:no-underline'>About</Link>
+                        <Link href={'/ContactUs'} className='hover:underline underline sm:no-underline'>Contact us</Link>
+                        <Link href={'/PrivacyPolicy'} className='hover:underline underline sm:no-underline'>Privacy Policy</Link>
+                        <Link href={'/Terms&Condition'} className='hover:underline underline sm:no-underline'>Terms & Conditions</Link>
                     </div>
                 </div>
                 <div className='flex flex-col gap-2 items-center'>
