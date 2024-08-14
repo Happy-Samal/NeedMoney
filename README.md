@@ -4,7 +4,9 @@
 
 Need Money is a web application designed for crowdfunding, where creator , influencer and developer are get money from their friends and followers . It allows users to create an account to get payment and search username to pay their favorite creator or friends.
 
+## Website host on
 
+click - https://need-money.vercel.app/
 
 ## Technologies Used
 
