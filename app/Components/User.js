@@ -70,8 +70,8 @@ function User({ username }) {
 if (loading) {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="text-white text-2xl flex items-center">
-        Loading
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div className="text-white text-2xl flex items-center">Loading</div>
         <span className="dot-animation">.</span>
         <span className="dot-animation">.</span>
         <span className="dot-animation">.</span>
