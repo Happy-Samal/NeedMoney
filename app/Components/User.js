@@ -67,13 +67,19 @@ function User({ username }) {
   }
 
   // Loading UI
-  if (loading) {
-    return (
-      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-        <div className="text-white text-2xl">Loading...</div>
+if (loading) {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+      <div className="text-white text-2xl flex items-center">
+        Loading
+        <span className="dot-animation">.</span>
+        <span className="dot-animation">.</span>
+        <span className="dot-animation">.</span>
       </div>
-    );
-  }
+    </div>
+  );
+}
+
   return (
     <>
       <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
