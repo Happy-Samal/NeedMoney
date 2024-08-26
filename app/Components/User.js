@@ -11,15 +11,19 @@ function User({ username }) {
   const [userInfo, setUserInfo] = useState({})
   const [paymentInfo, setPaymentInfo] = useState([])
   const [payForm, setPayForm] = useState({ name: "", message: "", amount: "" })
-
+  const [loading, setLoading] = useState(false); // Loading state
 
   const fetchDataFromBackend = async () => {
-    let a = await fetchUser(username)
-    setUserInfo(a)
+    setLoading(true); // Set loading to true when fetching starts
+    let a = await fetchUser(username);
+    setUserInfo(a);
+    setLoading(false); // Set loading to false when fetching is done
   }
   const fetchPaymentFromBacked = async () => {
-    let p = await fetchPayment(userInfo.email)
-    setPaymentInfo(p)
+    setLoading(true); // Set loading to true when fetching starts
+    let p = await fetchPayment(userInfo.email);
+    setPaymentInfo(p);
+    setLoading(false); // Set loading to false when fetching is done
   }
   useEffect(() => {
     fetchDataFromBackend()
@@ -60,6 +64,15 @@ function User({ username }) {
     var rzp1 = new Razorpay(options);
     rzp1.open();
     setPayForm({ name: "", message: "", amount: "" })
+  }
+
+  // Loading UI
+  if (loading) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div className="text-white text-2xl">Loading...</div>
+      </div>
+    );
   }
   return (
     <>

@@ -11,12 +11,18 @@ function Dashboard() {
   const { data: session } = useSession();
   const router = useRouter();
   const [formInfo, setFormInfo] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   // Memoize the function to avoid re-creating it on every render
   const fetchDataFromBackend = useCallback(async () => {
     if (session?.user?.username) {
-      let a = await fetchUser(session.user.username);
-      setFormInfo(a);
+      setIsLoading(true); // Set loading state to true
+      try {
+        let a = await fetchUser(session.user.username);
+        setFormInfo(a);
+      } finally {
+        setIsLoading(false); // Set loading state to false
+      }
     }
   }, [session?.user?.username]);
 
@@ -33,8 +39,9 @@ function Dashboard() {
   };
 
   const formSubmit = async (data) => {
-    let msg = await updateUser(formInfo.email, data);
-    if (toast) {
+    setIsLoading(true);
+    try {
+      let msg = await updateUser(formInfo.email, data);
       toast(msg, {
         position: "top-right",
         autoClose: 1000,
@@ -46,17 +53,26 @@ function Dashboard() {
         theme: "light",
         transition: Bounce,
       });
-    }
-    if (msg === "🦄 Saved Successfully!") {
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
+      if (msg === "🦄 Saved Successfully!") {
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
 
   // If session is not available, don't render the rest of the component
   if (!session) return null;
-
+   // Loading UI
+   if (isLoading) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div className="text-white text-2xl">Loading...</div>
+      </div>
+    );
+  }
   return (
     <>
       <ToastContainer
